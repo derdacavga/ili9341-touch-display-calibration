@@ -6,17 +6,17 @@ TFT_eSPI tft = TFT_eSPI();
 void perform_calibration() {
   uint16_t calData[5];
 
-  tft.fillScreen(TFT_BLACK);
+  tft.fillScreen(TFT_GREEN);
   tft.setCursor(20, 0);
   tft.setTextFont(2);
   tft.setTextSize(1);
-  tft.setTextColor(TFT_WHITE, TFT_BLACK);
+  tft.setTextColor(TFT_BLACK, TFT_GREEN);
   tft.println("Calibration");
   tft.setTextFont(1);
-  tft.println("\ntaouch that\nblue corner");
+  tft.println("\ntouch that\nblue corner");
   delay(1000);
 
-  tft.calibrateTouch(calData, TFT_MAGENTA, TFT_BLACK, 15); 
+  tft.calibrateTouch(calData, TFT_MAGENTA, TFT_GREEN, 15); 
 
   tft.setTouch(calData);
 
@@ -29,12 +29,12 @@ void setup() {
   Serial.begin(115200);
   
   tft.init();
-  tft.setRotation(1);
+  tft.setRotation(2);
 
   perform_calibration();
 
-  tft.fillScreen(TFT_BLACK);
-  tft.setTextColor(TFT_GREEN, TFT_BLACK);
+  tft.fillScreen(TFT_GREEN);
+  tft.setTextColor(TFT_BLACK, TFT_GREEN);
   tft.setTextSize(2);
   tft.setCursor(10, 10);
   tft.println("Drwaing Test");
@@ -49,6 +49,6 @@ void loop() {
     Serial.print("Drawing: X = "); Serial.print(x);
     Serial.print(", Y = "); Serial.println(y);
     
-    tft.fillCircle(x, y, 4, TFT_GREEN);
+    tft.fillCircle(x, y, 4, TFT_BLACK);
   }
 }

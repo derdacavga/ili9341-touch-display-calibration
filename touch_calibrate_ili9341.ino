@@ -49,6 +49,6 @@ void loop() {
     Serial.print("Drawing: X = "); Serial.print(x);
     Serial.print(", Y = "); Serial.println(y);
     
-    tft.fillCircle(x, y, 4, TFT_BLUE);
+    tft.fillCircle(x, y, 4, TFT_GREEN);
   }
 }
